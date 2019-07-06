@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/mini-app-file-api/static/js/runtime~main.ba73f3b2.js"
   },
   {
-    "revision": "9f4035919b932f67ad31",
-    "url": "/mini-app-file-api/static/js/main.4866be3c.chunk.js"
+    "revision": "080e2c83d20ae3f6dfdc",
+    "url": "/mini-app-file-api/static/js/main.ec34fd33.chunk.js"
   },
   {
     "revision": "bd6ab94e4e64572c2360",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/mini-app-file-api/static/css/2.63dc03ba.chunk.css"
   },
   {
-    "revision": "b8d1922e5163fa4f1b0a7be04a05ddad",
+    "revision": "10839b219a7ffb141ee8e5ca25d7ee3c",
     "url": "/mini-app-file-api/index.html"
   }
 ];
