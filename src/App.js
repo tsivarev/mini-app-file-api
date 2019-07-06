@@ -1,5 +1,5 @@
 import React from 'react';
-import {Div, Avatar, Cell, Group, Panel, PanelHeader, View} from '@vkontakte/vkui';
+import {Avatar, Cell, Group, Panel, PanelHeader, View} from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
 class App extends React.Component {
