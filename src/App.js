@@ -13,7 +13,7 @@ class App extends React.Component {
 
   componentDidMount() {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:10888/logo.jpg");
+    xhr.open("GET", process.env.PUBLIC_URL + "/logo.jpg");
     xhr.responseType = "blob";
     xhr.onload = function() {
       let urlCreator = window.URL || window.webkitURL;
