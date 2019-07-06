@@ -1,20 +1,45 @@
 import React from 'react';
-import {View, Div, Group, Panel, PanelHeader} from '@vkontakte/vkui';
+import {Div, Avatar, Cell, Group, Panel, PanelHeader, View} from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      url: ''
+    };
+  }
+
+  componentDidMount() {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:10888/logo.jpg");
+    xhr.responseType = "blob";
+    xhr.onload = function() {
+      let urlCreator = window.URL || window.webkitURL;
+      let imageUrl = urlCreator.createObjectURL(xhr.response);
+      this.setState({url: imageUrl});
+    }.bind(this);
+    xhr.send(null);
   }
 
   render() {
     return (
-      <Panel id='main'>
-        <PanelHeader>Example</PanelHeader>
-        <Group title="Navigation Example">
-          <Div>Hello</Div>
-        </Group>
-      </Panel>
+      <View id='main' activePanel='mainPanel'>
+        <Panel id='mainPanel'>
+          <PanelHeader>Example</PanelHeader>
+          <Group>
+            <Cell
+              description="BLOB"
+							multiline={true}
+              before={<Avatar src={this.state.url} size={80}/>}
+              size="l"
+            >
+              {this.state.url}
+            </Cell>
+          </Group>
+        </Panel>
+      </View>
     );
   }
 }
