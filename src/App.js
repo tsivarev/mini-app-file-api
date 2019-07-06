@@ -1,5 +1,5 @@
 import React from 'react';
-import {Avatar, Cell, Group, Panel, PanelHeader, View} from '@vkontakte/vkui';
+import {Avatar, Button, Cell, Group, Panel, PanelHeader, View} from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
 class App extends React.Component {
@@ -9,6 +9,8 @@ class App extends React.Component {
     this.state = {
       url: ''
     };
+
+    this.copyToClipboard = this.copyToClipboard.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +25,18 @@ class App extends React.Component {
     xhr.send(null);
   }
 
+  copyToClipboard(text) {
+    const el = document.createElement('textarea');
+    el.value = text;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  };
+
   render() {
     return (
       <View id='main' activePanel='mainPanel'>
@@ -33,6 +47,7 @@ class App extends React.Component {
               description="BLOB"
 							multiline={true}
               before={<Avatar src={this.state.url} size={80}/>}
+              bottomContent={<Button onClick={() => {this.copyToClipboard(this.state.url)}}>Скопировать</Button>}
               size="l"
             >
               {this.state.url}
